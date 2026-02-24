@@ -35,8 +35,10 @@ import { createApiClient } from "../api/client";
 function resolveBaseUrl() {
   const envBase = process.env.REACT_APP_NOTES_API_BASE_URL;
   if (envBase) return envBase.replace(/\/+$/, "");
-  // Default for local dev/proxy setups; in this environment backend is on :3001.
-  return "http://localhost:3001";
+
+  // Default: Kavia preview backend URL (matches running_containers.notes_backend).
+  // This keeps the app working in preview without requiring env configuration.
+  return "https://vscode-internal-28946-beta.beta01.cloud.kavia.ai:3001";
 }
 
 /**
